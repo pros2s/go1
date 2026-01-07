@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	postgres.CheckConnection()
+	postgres.TestFirstSQL()
 }
