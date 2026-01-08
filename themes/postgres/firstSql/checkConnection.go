@@ -27,5 +27,9 @@ func CheckConnection(ctx context.Context) {
 		panic(err)
 	}
 
+	if err := sql.DeleteValues(ctx, connect, 1); err != nil {
+		panic(err)
+	}
+
 	fmt.Println("Connection success")
 }
