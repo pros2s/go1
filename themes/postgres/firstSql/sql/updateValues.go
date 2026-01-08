@@ -9,15 +9,15 @@ import (
 func UpdateValues(
 	ctx context.Context,
 	conn *pgx.Conn,
-	updateId int,
-	newValue bool,
+	updateCompleted bool,
+	newValue string,
 ) error {
 	sqlString := `
 		UPDATE tasks
-		SET completed = $2
-		WHERE id = $1
+		SET description = $2
+		WHERE completed = $1
 	`
 
-	_, err := conn.Exec(ctx, sqlString, updateId, newValue)
+	_, err := conn.Exec(ctx, sqlString, updateCompleted, newValue)
 	return err
 }
