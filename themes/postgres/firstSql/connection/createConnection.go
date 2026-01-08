@@ -1,4 +1,4 @@
-package first_sql
+package connection
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-package first_sql
+package sql
 
 import (
 	"context"
@@ -14,14 +14,12 @@ func CreateTable(ctx context.Context, conn *pgx.Conn) error {
 			description VARCHAR(1000) NOT NULL,
 			created_at TIMESTAMP NOT NULL,
 			completed BOOLEAN NOT NULL,
-			completed_at TIMESTAMP
+			completed_at TIMESTAMP,
+
+			UNIQUE(title)
 		)
 	`
 
 	_, err := conn.Exec(ctx, sqlString)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return err
 }
