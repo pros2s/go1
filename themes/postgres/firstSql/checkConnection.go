@@ -18,8 +18,12 @@ func CheckConnection(ctx context.Context) {
 		panic(err)
 	}
 
-	newIvs := sql.NewInsertValues("Ivs1", "ivs description")
-	if err := sql.InsertValues(ctx, connect, newIvs); err != nil {
+	// newIvs := sql.NewInsertValues("Ivs1", "ivs description")
+	// if err := sql.InsertValues(ctx, connect, newIvs); err != nil {
+	// 	panic(err)
+	// }
+
+	if err := sql.UpdateValues(ctx, connect, 3, true); err != nil {
 		panic(err)
 	}
 
