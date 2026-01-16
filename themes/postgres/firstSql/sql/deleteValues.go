@@ -6,12 +6,12 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-func DeleteValues(ctx context.Context, conn *pgx.Conn, deleteId int) error {
+func DeleteValues(ctx context.Context, conn *pgx.Conn, deleteIds []int) error {
 	sqlString := `
 		DELETE FROM tasks
-		WHERE id = $1
+		WHERE id = ANY($1)
 	`
 
-	_, err := conn.Exec(ctx, sqlString, deleteId)
+	_, err := conn.Exec(ctx, sqlString, deleteIds)
 	return err
 }
