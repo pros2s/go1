@@ -10,7 +10,6 @@ func UpdateValues(
 	ctx context.Context,
 	conn *pgx.Conn,
 	task TaskModel,
-	taskID int,
 ) error {
 	sqlString := `
 		UPDATE tasks
@@ -18,7 +17,7 @@ func UpdateValues(
 		WHERE id = $4
 	`
 
-	_, err := conn.Exec(ctx, sqlString, task.Title, task.Description, task.Completed_at, taskID)
+	_, err := conn.Exec(ctx, sqlString, task.Title, task.Description, task.Completed_at, task.ID)
 
 	return err
 }

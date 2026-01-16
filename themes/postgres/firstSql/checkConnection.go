@@ -36,14 +36,16 @@ func CheckConnection(ctx context.Context) {
 
 	for _, task := range tasks {
 		if task.ID == 8 {
-			task.Title = "Another title"
-			task.Description = "Another description"
+			task.Title = "Eight title"
+			task.Description = "Eight description"
 			timeNow := time.Now()
 			task.Completed_at = &timeNow
 
-			if err := sql.UpdateValues(ctx, connect, task, task.ID); err != nil {
+			if err := sql.UpdateValues(ctx, connect, task); err != nil {
 				panic(err)
 			}
+
+			break
 		}
 	}
 
