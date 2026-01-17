@@ -7,6 +7,14 @@ PROJECT_NAME=$(shell basename "$(PWD)")
 run-go:
 	go run main.go
 
+## docker-up-app: Run docker app
+docker-up-app:
+	docker compose up -d app
+
+## docker-down: Docker compose down
+docker-down:
+	docker compose down
+
 ## migrate-up: Migration up to the top point
 migrate-up:
 	@migrate -database ${CONNECTION_PATH} -path migrations up
