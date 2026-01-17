@@ -21,14 +21,6 @@ func CheckConnection(ctx context.Context) {
 		panic(err)
 	}
 
-	// newTask := sql.NewTask("Model title1", "It is model title1")
-	// if err := sql.InsertValues(ctx, connect, newTask); err != nil {
-	// 	panic(err)
-	// }
-	if err := sql.DeleteValues(ctx, connect, []int{9, 10}); err != nil {
-		panic(err)
-	}
-
 	tasks, err := sql.GetTableData(ctx, connect)
 	if err != nil {
 		panic(err)

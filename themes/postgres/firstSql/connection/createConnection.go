@@ -2,12 +2,12 @@ package connection
 
 import (
 	"context"
+	"os"
 
 	"github.com/jackc/pgx/v5"
 )
 
-var PGX_CONNECT_STRING = "postgres://postgres:7355608@localhost:5432/postgres"
-
 func CreateConnection(ctx context.Context) (*pgx.Conn, error) {
-	return pgx.Connect(ctx, PGX_CONNECT_STRING)
+	conn_path := os.Getenv("CONNECTION_PATH")
+	return pgx.Connect(ctx, conn_path)
 }
