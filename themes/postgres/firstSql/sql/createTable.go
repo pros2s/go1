@@ -11,7 +11,9 @@ func CreateTable(ctx context.Context, conn *pgx.Conn) error {
 		CREATE TABLE IF NOT EXISTS tasks (
 			id SERIAL PRIMARY KEY,
 			title VARCHAR(100) NOT NULL,
-			description VARCHAR(1000) NOT NULL,			created_at TIMESTAMP NOT NULL,			completed BOOLEAN NOT NULL,
+			description VARCHAR(1000) NOT NULL,
+			created_at TIMESTAMP NOT NULL,
+			completed BOOLEAN NOT NULL,
 			completed_at TIMESTAMP,
 
 			UNIQUE(title)
