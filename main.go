@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go1/themes/docker"
+	"go1/themes/signal"
 )
 
 func main() {
-	docker.TestDockerFile()
+	signal.TestSignal()
 }
