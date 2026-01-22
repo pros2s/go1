@@ -15,6 +15,11 @@ docker-up-app:
 docker-down:
 	docker compose down
 
+## migrate-create: Migration create (with arg "migrationName" or by default name = "init")
+migrationName ?= init
+migrate-create:
+	migrate create -ext sql -dir migrations -seq  $(migrationName)
+
 ## migrate-up: Migration up to the top point
 migrate-up:
 	@migrate -database ${CONNECTION_PATH} -path migrations up
